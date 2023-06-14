@@ -63,9 +63,9 @@ function Articulos() {
                 <button onClick={handlerBusqueda}>Buscar</button>
             </div>
         </div>
-        <div className='header-title2 mt-3'>
-            <div className='btn btn-primary text-light '>
-                <Link className='Link' to={"/carrito"}>Carrito</Link>
+        <div className='header-title2 mt-3 '>
+            <div className=''>
+                <Link className='link-primary' to={"/carrito"}>carrito</Link>
             </div>
         </div >
         <section className='productos-box '>

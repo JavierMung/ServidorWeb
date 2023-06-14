@@ -39,8 +39,8 @@ function Carrito() {
 
         </div>
         <div className='header-title2 '>
-            <div className='btn btn-primary text-light '>
-                <Link className='Link' to={"/productos"}>Seguir Comprando</Link>
+            <div >
+                <Link className='Linlink-primary k' to={"/productos"}>Seguir Comprando</Link>
             </div>
         </div >
 
