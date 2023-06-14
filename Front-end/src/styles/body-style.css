@@ -1,0 +1,76 @@
+.borde {
+    border: 1px solid red;
+}
+
+.menu-box {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    
+}
+.box-content-card{
+    display: flex;
+    justify-content: center;
+}
+.botones-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.boton-box{
+    margin: 5px;
+}
+.boton{
+    width: 25px;
+}
+.card-articulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 300px;
+
+}
+.menu-item {
+    display: flex;
+    align-items: center;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    height: 27px;
+    text-align: center;
+    transition: .3s;
+    border-radius: 7px;
+    margin: 10px;
+    padding: 15px;
+}
+.productos-box{
+    display: flex;
+    justify-content: center;
+}
+
+.menu-item:hover{
+    transition: .3s;
+    background-color: #3EA0D0;
+    color: white;
+    cursor: pointer;
+}
+.header-title{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.header-title2{
+    display: flex;
+    font-size: 25px;
+    justify-content: flex-end;
+    width: 100%;
+    padding-right: 50px;
+}
+

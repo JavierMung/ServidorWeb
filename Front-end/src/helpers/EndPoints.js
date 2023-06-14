@@ -1,0 +1,6 @@
+export const ObtenerArticulos = "https://t9-af-20196360211.azurewebsites.net/api/ObtenerArticulos?"
+export const AgregarAlCarrito = "https://t9-af-20196360211.azurewebsites.net/api/AgregarAlCarrito?"
+export const BuscarArticulo = "https://t9-af-20196360211.azurewebsites.net/api/BuscarArticulos?"
+export const CapturaArticulo = "https://t9-af-20196360211.azurewebsites.net/api/CapturaArticulo?"
+export const EliminarAritculos = "https://t9-af-20196360211.azurewebsites.net/api/EliminarArticuloCarrito?"
+export const ObtenerArticulosCarrito = "https://t9-af-20196360211.azurewebsites.net/api/ObtenerArticulosCarrito?"
