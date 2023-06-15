@@ -60,6 +60,11 @@ function Carrito() {
             }
 
         </section>
+        <div className='header-title2'>
+            <div >
+                <div className='btn btn-danger'>Eliminar todo el carrito</div>
+            </div>
+        </div >
 
     </>);
 }
