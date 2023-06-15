@@ -7,9 +7,9 @@ function Alta() {
     const [descripcion, setDescripcion] = useState("")
     const [cantidad, setCantidad] = useState(1)
     const [precio, setPrecio] = useState(1)
-     const [foto, setFoto] = useState('')
-    const [previewUrl, setPreviewUrl] = useState('');
-
+    const [foto, setFoto] = useState("")
+    const [previewUrl, setPreviewUrl] = useState("");
+    const [loading, setLoading] = useState(false)
     const handleChangeName = (e) => {
         // 👇 Store the input value to local state
         setNombre(e.target.value);
@@ -49,7 +49,7 @@ function Alta() {
             const reader = new FileReader();
             reader.onload = function (e) {
                 //foto = reader.result.split(',')[1];
-                 setFoto(reader.result.split(',')[1]);
+                setFoto(reader.result.split(',')[1]);
                 setPreviewUrl(reader.result);
             };
             reader.readAsDataURL(file);
@@ -59,8 +59,8 @@ function Alta() {
 
 
     const alta = (event) => {
-        event.preventDefault(); 
-        console.log(foto)
+        event.preventDefault();
+        setLoading(true)
         fetch(CapturaArticulo, {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
             mode: "cors", // no-cors, *cors, same-origin
@@ -83,12 +83,23 @@ function Alta() {
             ), // body data type must match "Content-Type" header
         })
             .then(res => {
+
                 if (res.status !== 200)
                     throw new Error("Error al enviar el formulario")
-                else alert("Exito")
+                return res.json()
+            }).then(res => {
                 foto = null
             })
             .catch(err => console.log(err))
+            .finally(() => {
+                setLoading(false)
+                setPrecio(1)
+                setCantidad(1)
+                setDescripcion("")
+                setFoto("")
+                setNombre("")
+                setPreviewUrl("")
+            })
     }
 
 
@@ -99,7 +110,7 @@ function Alta() {
                     <h1>Captura de artículos</h1>
                 </div>
             </div>
-            <form>
+            <form >
                 <div className="mt-2 text-center">  {foto && (
                     <div className="mt-2 text-center">
                         {previewUrl && (
@@ -114,9 +125,16 @@ function Alta() {
                 <div className="mt-2 text-center"><div>Descripcion:</div>  <input onChange={handleChangeDescripcion} value={descripcion} type="text" placeholder="Descripcion" /></div>
                 <div className="mt-2 text-center"><div>Cantidad:</div> <input onChange={handleChangeCantidad} value={cantidad} type="number" placeholder="Cantidad" /></div>
                 <div className="mt-2 text-center"><div>Precio:</div> <input onChange={handleChangePrecio} value={precio} type="number" placeholder="Precio" /></div>
-                <div className="mt-2 mt-3 text-center"> <input type="file" accept="image/*" onChange={handleFileChange} /></div>
-                <div className="mt-2 text-end"><button onClick={(event)=>alta(event)} className="btn btn-success">Enviar</button></div>
-
+                <div className="ps-5 mt-3 text-center"> <input type="file" accept="image/*" onChange={handleFileChange} /></div>
+                <div className="mt-3 text-center "><button onClick={(event) => alta(event)} className="btn btn-success">Enviar</button></div>
+                {loading ? <div className=" text-center mt-3">
+                    <div>
+                        Capturando articulo...
+                    </div>
+                    <div class=" spinner-border mt-3" role="status">
+                    </div>
+                </div> : <></>
+                }
             </form>
         </div>);
 }

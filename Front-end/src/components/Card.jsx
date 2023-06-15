@@ -52,8 +52,9 @@ function Card({ num, articulo, carrito }) {
 
 
     }
-    const delCarrito = () => {
-
+    const delCarrito = (event) => {
+        event.preventDefault()
+        console.log(counter, articulo.Id);
         fetch(EliminarAritculos, {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
             mode: "cors", // no-cors, *cors, same-origin
@@ -65,7 +66,7 @@ function Card({ num, articulo, carrito }) {
             },
             redirect: "follow", // manual, *follow, error
             referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-            body: JSON.stringify({ cantidad: counter, Id: articulo.id })
+            body: JSON.stringify({ cantidad: counter, Id: articulo.Id })
         }).then(res => {
             if (res.status !== 200) {
                 console.log(res.json())
@@ -159,7 +160,7 @@ function Card({ num, articulo, carrito }) {
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                                        <button type="button" onClick={delCarrito} class="btn btn-success" data-bs-dismiss="modal">Aceptar</button>
+                                        <button type="button" onClick={(event)=>delCarrito(event)} class="btn btn-success" data-bs-dismiss="modal">Aceptar</button>
                                     </div>
                                 </div>
                             </div>
