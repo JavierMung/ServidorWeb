@@ -117,6 +117,10 @@ function Card({ num, articulo, carrito }) {
                         <button type="button" class="btn-close" data-bs-dismiss="alert" onClick={() => setError(false)}></button>
                     </div> : <></>
                 }
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>!Error!</strong> Hubo un error: {"No hay suficiente cantidad disponible del artículo. Cantidad disponible: 0"}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" onClick={() => setError(false)}></button>
+                    </div> 
                 <div>
                     <h3 className='text-center'>{(articulo.Nombre).toUpperCase()}</h3>
                 </div>
@@ -156,7 +160,7 @@ function Card({ num, articulo, carrito }) {
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        ¿Deseas eliminar el articulo?
+                                        ¿Deseas eliminar todo el articulo?
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
